@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura AI - Generative Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#930df2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#1b1022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#151118] dark:text-white antialiased">
+<!-- Layout Container -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- TopNavBar (Sticky) -->
+<header class="sticky top-0 z-50 flex w-full items-center justify-between border-b border-[#e1dbe6] dark:border-[#352544] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3 lg:px-10">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-[#151118] dark:text-white">Aura AI</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="hidden sm:inline">New Chat</span>
+</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f3f0f5] dark:bg-[#2d1b3a] text-[#151118] dark:text-white transition-colors hover:bg-[#e1dbe6] dark:hover:bg-[#3d274e]">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto overflow-x-hidden pb-40 lg:pb-48">
+<div class="mx-auto flex h-full max-w-[800px] flex-col items-center justify-center px-6">
+<!-- Empty State -->
+<div class="text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="mb-6 flex justify-center">
+<div class="flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-5xl">chat_bubble</span>
+</div>
+</div>
+<h1 class="mb-4 text-3xl font-bold tracking-tight text-[#151118] dark:text-white lg:text-4xl">
+                        Hi! Ask me anything 👋
+                    </h1>
+<p class="mb-10 text-lg text-[#79608a] dark:text-[#c6bacf]">
+                        I'm your creative partner for drafting, learning, and coding.
+                    </p>
+<!-- Prompt Chips -->
+<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+<button class="flex items-center gap-3 rounded-xl border border-[#e1dbe6] dark:border-[#352544] bg-white dark:bg-[#2d1b3a] p-4 text-left transition-all hover:border-primary hover:bg-primary/5 group">
+<span class="material-symbols-outlined text-[#79608a] group-hover:text-primary">science</span>
+<span class="text-sm font-medium text-[#151118] dark:text-[#f3f0f5]">Explain quantum physics</span>
+</button>
+<button class="flex items-center gap-3 rounded-xl border border-[#e1dbe6] dark:border-[#352544] bg-white dark:bg-[#2d1b3a] p-4 text-left transition-all hover:border-primary hover:bg-primary/5 group">
+<span class="material-symbols-outlined text-[#79608a] group-hover:text-primary">mail</span>
+<span class="text-sm font-medium text-[#151118] dark:text-[#f3f0f5]">Write a professional email</span>
+</button>
+<button class="flex items-center gap-3 rounded-xl border border-[#e1dbe6] dark:border-[#352544] bg-white dark:bg-[#2d1b3a] p-4 text-left transition-all hover:border-primary hover:bg-primary/5 group">
+<span class="material-symbols-outlined text-[#79608a] group-hover:text-primary">terminal</span>
+<span class="text-sm font-medium text-[#151118] dark:text-[#f3f0f5]">Debug a Python script</span>
+</button>
+<button class="flex items-center gap-3 rounded-xl border border-[#e1dbe6] dark:border-[#352544] bg-white dark:bg-[#2d1b3a] p-4 text-left transition-all hover:border-primary hover:bg-primary/5 group">
+<span class="material-symbols-outlined text-[#79608a] group-hover:text-primary">article</span>
+<span class="text-sm font-medium text-[#151118] dark:text-[#f3f0f5]">Summarize this article</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Prompt Input Area (Sticky Bottom) -->
+<div class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark px-4 pb-8 pt-10">
+<div class="mx-auto max-w-[800px]">
+<div class="relative flex w-full flex-col items-stretch overflow-hidden rounded-2xl border border-[#e1dbe6] dark:border-[#352544] bg-white dark:bg-[#2d1b3a] shadow-xl transition-shadow focus-within:ring-2 focus-within:ring-primary/20">
+<!-- Textarea Container -->
+<div class="flex items-start px-4 pt-4">
+<div class="hidden sm:flex mt-1 h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<textarea class="flex-1 resize-none border-0 bg-transparent py-2 pl-3 text-base text-[#151118] dark:text-white placeholder:text-[#79608a] dark:placeholder:text-[#c6bacf] focus:ring-0" placeholder="Type a message or paste a link..." rows="1"></textarea>
+</div>
+<!-- Input Toolbar -->
+<div class="flex items-center justify-between border-t border-[#f3f0f5] dark:border-[#3d274e] bg-[#f9fafc] dark:bg-[#241530] px-3 py-2">
+<div class="flex items-center gap-1">
+<button class="flex h-9 w-9 items-center justify-center rounded-lg text-[#79608a] dark:text-[#c6bacf] hover:bg-[#e1dbe6] dark:hover:bg-[#3d274e]" title="Attach file">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="flex h-9 w-9 items-center justify-center rounded-lg text-[#79608a] dark:text-[#c6bacf] hover:bg-[#e1dbe6] dark:hover:bg-[#3d274e]" title="Clear input">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+<div class="mx-2 h-4 w-[1px] bg-[#e1dbe6] dark:bg-[#352544]"></div>
+<button class="flex h-9 w-9 items-center justify-center rounded-lg text-[#79608a] dark:text-[#c6bacf] hover:bg-[#e1dbe6] dark:hover:bg-[#3d274e]" title="Search">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="hidden text-xs text-[#79608a] dark:text-[#c6bacf] sm:inline">Press Enter to send</span>
+<button class="flex h-10 items-center gap-2 rounded-xl bg-primary px-5 font-bold text-white transition-all hover:shadow-lg active:scale-95 disabled:opacity-50">
+<span class="hidden text-sm sm:inline">Send</span>
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Privacy Text -->
+<p class="mt-3 text-center text-[11px] text-[#79608a] dark:text-[#c6bacf]">
+                    Aura AI can make mistakes. Verify important info. <a class="underline hover:text-primary" href="#">Privacy &amp; Terms</a>
+</p>
+</div>
+</div>
+</div>
+<!-- User Background Decorative Glows -->
+<div class="pointer-events-none fixed -left-20 -top-20 z-0 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]"></div>
+<div class="pointer-events-none fixed -bottom-20 -right-20 z-0 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]"></div>
+</body></html>
